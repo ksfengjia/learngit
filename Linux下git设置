@@ -1,0 +1,5 @@
+#linux环境下git设置
+git设置编辑器命令: git config --global core.editor "vim"
+git设置推送选项:
+	git config --global push.default simple
+	simple：将当前分支推到它的upstream分支，但名字不匹配时拒绝。这是最安全的选项并且git 2.0之后会默认为这个。
