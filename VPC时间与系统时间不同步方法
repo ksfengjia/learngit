@@ -1,0 +1,35 @@
+感谢 张善友博客分享
+url：http://www.cnblogs.com/shanyou/archive/2010/07/18/1780076.html
+
+VPC常用的设置方法参看文章: 
+http://blogs.msdn.com/b/virtual_pc_guy/archive/2007/11/28/disabling-time-synchronization-under-virtual-pc-2007.aspx
+
+Windows 7的VPC的虚拟机设置方法参考Windows 7 虚拟化论坛:
+http://social.technet.microsoft.com/Forums/en-US/w7itprovirt/thread/aca326fd-8e37-49f3-8b90-4eda93a11cd6#5bd85a23-5e88-4a59-97d2-fb67422646fe
+
+VPC时间与系统时间不同步方法
+SANDY.WADHWA网友的VB Script脚本，保存成vpcdisable.vbs ：
+ 1: 'Title: Script to disable timesync for a VM. 
+ 2:  
+ 3: 'Usage: cscript ScriptName <vmname> 
+ 4: Set objVPC = CreateObject("VirtualPC.Application") 
+ 5:  
+ 6: 'Get virtual machine name from command-line parameter 
+ 7: Set objVM = objVPC.FindVirtualMachine(WScript.Arguments(0)) 
+ 8:  
+ 9: 'Disable TimeSync During Boot Time
+10: errReturn  = objVM.SetConfigurationValue("hardware/bios/time_sync_at_boot",false)
+11:  
+12: 'Get object for GuestOS
+13: Set objGuestOS =objVM.GuestOS
+14:  
+15: 'Disable TimeSync During VM Execution
+16: objGuestOS. IsHostTimeSyncEnabled = false
+
+VPC需关机，不能休眠，休眠会使操作无效
+主系统下采用命令行操作，非VPC下进行修改
+cd <vpcdisable.vbs所在目录下>
+cscript vpcdisable.vbs "windows xp mode"
+成功后开启VPC修改时间即可
+
+
