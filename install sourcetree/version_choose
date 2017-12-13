@@ -1,0 +1,12 @@
+sourcetree choose:
+a good version 
+[1.7.0.32509]
+Name = SourceTree-1.7.0.32509
+ProductVersion = 1.7.0.32509
+URL = https://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.7.0.32509.exe
+
+the version history:
+URL: https://www.sourcetreeapp.com/update/windowsupdates.txt
+
+reference discuss:
+https://community.atlassian.com/t5/Sourcetree-questions/restore-older-version-of-SourceTree/qaq-p/292830
