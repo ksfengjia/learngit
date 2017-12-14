@@ -1,0 +1,31 @@
+generate the rsa in win7
+URL: http://blog.csdn.net/lsyz0021/article/details/52064829
+	1. 	install the git; see install sourcetree/install_sourcetree
+	2. 	open the git GUI
+	3. 	enter commadline :
+			cd ~
+			mkdir ~/.ssh
+	4. 	set global config:
+			git config --global user.name "fengj"  
+			git config --global user.email "fengjia@snerdi.com"  
+	5. 	ssh-keygen -t rsa -C "fengjia@snerdi.com"  	
+	6. 	连续按三次回车，这里设置的密码就为空了，并且创建了key。
+	
+		Your identification has been saved in /User/Admin/.ssh/id_rsa.
+		Your public key has been saved in /User/Admin/.ssh/id_rsa.pub.
+		The key fingerprint is:
+		………………
+	
+		最后得到了两个文件：id_rsa和id_rsa.pub 
+	
+	7.	打开Admin目录进入.ssh文件夹，用记事本打开id_rsa.pub，复制里面的内容添加到你github或者bitbucket ssh设置里即可
+		id_rsa.pub公钥，id_rsa私钥
+
+generate the rsa in linux
+	1. enter commadline :
+		cd ~
+		ssh-keygen -t rsa
+		连续按三次回车，这里设置的密码就为空了，并且创建了key。
+	2. cp ~/.ssh/id_rsa.pub 到所需的远程管理的公钥库中进行生效
+
+
