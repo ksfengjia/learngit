@@ -1,0 +1,80 @@
+如何创建远程和本地git仓库,如何配置ssh秘钥联通远程和本地仓库
+
+1. 建立远程仓库
+fengj@linux$ mkdir -p ~/git/testgit.git                                             
+fengj@linux$ cd ~/git/testgit.git                                                   
+fengj@linux$ git init --bare                                 
+Reinitialized existing Git repository in /home/matt/git/testgit.git/
+fengj@linux$ ls                                               
+branches/  config  description  HEAD  hooks/  info/  objects/  refs/
+
+2. 连接提交到个人仓库服务器
+fengj@linux$ mkdir -p ~/tmp/testgit
+fengj@linux$ cd ~/tmp/testgit
+fengj@linux$ git init                                               
+Initialized empty Git repository in /home/matt/tmp/testgit/.git/
+       
+fengj@linux$ touch README               
+fengj@linux$ git add .                                        
+fengj@linux$ git commit -m "initial commit"      
+[master (root-commit) 02ecfad] initial commit files changed create mode 100644 README                                                           
+fengj@linux$ git remote add origin localhost:/home/matt/git/testgit.git                         
+fengj@linux$ git push -u origin master                  
+Counting objects: 3, done.                                                            
+Writing objects: 100fengj@linux$ (3/3), 205 bytes, done.                                         
+Total 3 (delta 0), reused 0 (delta 0)                                                 
+To localhost:/home/matt/git/testgit.git                                               
+ * [new branch]      master -> master                                                 
+Branch master set up to track remote branch master from origin.
+
+3.如何配置ssh秘钥
+URL:https://jingyan.baidu.com/article/ed15cb1b5c64781be369813e.html
+
+生成 ssh keys
+打开终端，终端下输入命令：
+ssh-keygen -t rsa -C "youname@example.com"
+给这个秘钥文件起名， 比如叫C:\Users\Administrator\.ssh\ id_rsa_gitlib, 相应也会生成一个 id_rsa_gitlib.pub 文件。
+注意这里如果只输入文件名会在终端的当前目录下生成，拷贝到对应位置即可；
+
+添加私钥(重要)
+终端输入一下命令：
+$ ssh-add ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa_gitlib
+ssh-add命令是把专用密钥添加到ssh-agent的高速缓存中。该命令位置在/usr/bin/ssh-add
+如果出现Could not open a connection to your authentication agent.错误提示先执行$ ssh-agent.exe bash，然后执行上面命令；
+-D：删除ssh-agent中的所有密钥.
+-d：从ssh-agent中的删除密钥
+-e pkcs11：删除PKCS#11共享库pkcs1提供的钥匙。
+-s pkcs11：添加PKCS#11共享库pkcs1提供的钥匙。
+-L：显示ssh-agent中的公钥
+-l：显示ssh-agent中的密钥
+-t life：对加载的密钥设置超时时间，超时ssh-agent将自动卸载密钥
+-X：对ssh-agent进行解锁
+-x：对ssh-agent进行加锁
+
+远端配置公钥
+fengj@linux$ mkdir ~/.ssh
+fengj@linux$ cd ~./ssh
+将公钥id_rsa_gitlib.pub文件拷贝到.ssh文件夹下
+并cat id_dsa.pub >> ~/.ssh/authorized_keys
+
+权限问题：ssh配置authorized_keys后仍然需要输入密码的问题：URL：https://www.cnblogs.com/snowbook/p/5671406.html
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+如果authorized_keys文件、$HOME/.ssh目录 或 $HOME目录让本用户之外的用户有写权限，
+那么sshd都会拒绝使用 ~/.ssh/authorized_keys 文件中的key来进行认证的。
+
+linux管理多个ssh公钥密钥(重要):
+URL: http://rongmayisheng.com/post/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5
+
+
+
+
+
+
+
+
+
+
+
+
