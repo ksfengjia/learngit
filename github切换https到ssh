@@ -5,7 +5,7 @@ URL: https://blog.csdn.net/github_37538357/article/details/60468050
 1.git remote -v
 查看当前地址
 
-2.git remote set-url origin git@github:<<USERNAME>>/<<OTHERREPOSITROY>>.git设置为ssh地址
+2.git remote set-url origin git@github.com:<<USERNAME>>/<<OTHERREPOSITROY>>.git设置为ssh地址
 
 3.git remote -v
 修改完成后查看地址，配置为ssh地址就正确了
@@ -16,3 +16,10 @@ URL： https://blog.csdn.net/sunnypotter/article/details/18948053/
 
 解决方案 git@github.com出现Permission denied (publickey)
 URL: https://blog.csdn.net/samxx8/article/details/51497004
+
+具体形式：
+Host github.com
+	User git
+	HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa_fengjia_snerdi
