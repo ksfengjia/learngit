@@ -13,3 +13,9 @@ ssh-add 这个命令不是用来永久性的记住你所使用的私钥的。
 ssh-config配置
 URL： https://blog.csdn.net/huasonl88/article/details/52166876
 
+具体形式：
+Host github.com
+	User git
+	HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa_fengjia_snerdi
