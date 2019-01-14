@@ -1,0 +1,8 @@
+如何修改confluence主页
+URL： http://www.bubuko.com/infodetail-2602598.html
+
+进入 技术分享图片 > 基本配置（General Configuration） > 高级配置（Further Configuration）
+选择 编辑（Edit）。
+从站点首页（Site Homepage）下拉菜单中选择空间。
+当用户登录或者是单击站点的图标，Confluence 将会连接到你选择的首页上。
+选择 保存（Save）。

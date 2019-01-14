@@ -1,0 +1,91 @@
+安装mysql
+http://wiki.ubuntu.org.cn/MySQL
+https://www.linuxidc.com/Linux/2017-06/144805.htm
+
+安装JDK
+
+安装confluence
+https://blog.csdn.net/itjinglun/article/details/52230937
+http://www.confluence.cn/display/quickstart/confluence
+https://www.cnblogs.com/master11/articles/8125903.html
+
+安装中文语言包
+https://translations.atlassian.com/dashboard/download?lang=zh_CN#/Confluence/6.9.0-beta1
+注意浏览器语言需要修改为中文
+
+参考JIRA进行confluence安装
+
+1、下载安装包
+地址：https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.1.7-jira-7.1.7-x64.bin
+
+上面地址为[JIRA Software 7.1.7]版本的官方下载地址，需要最新版或其它版本的 国内下载地址，请联系我（企鹅：353375758）。
+
+将安装包上传至服务器“/data/AtlassianResource”中
+
+2、安装JIRA
+[root@langer ~]# df -h                                                                             // 查询当前系统磁盘分区情况
+[root@langer ~]# cd /data/AtlassianResource                                                        // 进入安装资源目录
+[root@langer AtlassianResource]# chmod a+x atlassian-jira-software-7.1.7-jira-7.1.7-x64.bin        // 让安装包有可执行权限
+[root@langer AtlassianResource]# ./atlassian-jira-software-7.1.7-jira-7.1.7-x64.bin                // 执行安装
+Unpacking JRE ...
+Starting Installer ...
+May 31, 2016 11:53:47 PM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+May 31, 2016 11:53:47 PM java.util.prefs.FileSystemPreferences$2 run
+INFO: Created system preferences directory in java.home.
+This will install JIRA Software 7.1.7 on your computer.
+OK [o, Enter], Cancel [c]                                                                          // 询问是否安装？  安装[输入o，回车]，取消[输入c]
+o                                                                                                  // 当然输入o安装
+Choose the appropriate installation or upgrade option.
+Please choose one of the following:                                                                // 选择一个安装类型：快速安装（使用默认配置）[1]、自定义安装（建议使用此类型）[2]、升级安装（升级已存在的JIRA）[3]
+Express Install (use default settings) [1], Custom Install (recommended for advanced users) [2, Enter], Upgrade an existing JIRA installation [3]
+2                                                                                                  // 选2，自定义安装
+Where should JIRA Software be installed?                                                           // JIRA安装在哪？
+[/opt/atlassian/jira]                                                                              // 默认的【安装目录】
+/data/atlassian/jira                                                                               // 改为“/data/atlassian/jira”
+Default location for JIRA Software data                                                            // JIRA数据目录
+[/var/atlassian/application-data/jira]                                                             // 默认的【数据目录】
+/data/atlassian/application-data/jira                                                              // 改为“/data/atlassian/application-data/jira”
+Configure which ports JIRA Software will use.                                                      // 配置哪个端口给JIRA使用
+JIRA requires two TCP ports that are not being used by any other                                   // JIRA需要两个未被使用的TCP端口：HTTP端口和Control(控制)端口
+applications on this machine. The HTTP port is where you will access JIRA                          // HTTP端口：用于浏览器访问
+through your browser. The Control port is used to startup and shutdown JIRA.                       // Control(控制)端口：用于启动和停止JIRA
+Use default ports (HTTP: 8080, Control: 8005) - Recommended [1, Enter], Set custom value for HTTP and Control ports [2]        // 默认(HTTP: 8090, Control: 8000)[1, 回车]，自定义[2]
+2                                                                                                  // 这里我们也选择2，但是实际不去改它，只是阅览下
+HTTP Port Number
+[8080]
+Control Port Number
+[8005]
+JIRA can be run in the background.
+You may choose to run JIRA as a service, which means it will start                                 // JIRA安装成系统服务后，可以后台运行，可以用服务命令形式（service 服务名 start/stop）启停，还可以随计算机自启动。
+automatically whenever the computer restarts.
+Install JIRA as Service?                                                                           // 将JIRA安装成系统服务？
+Yes [y, Enter], No [n]                                                                             // 是[y,回车]，否[n]
+y                                                                                                  // y，回车
+Details on where JIRA Software will be installed and the settings that will be used.
+Installation Directory: /data/atlassian/jira 
+Home Directory: /data/atlassian/application-data/jira 
+HTTP Port: 8080 
+RMI Port: 8005 
+Install as service: Yes 
+Install [i, Enter], Exit [e]                                                                       // 列出前面配置的信息
+i                                                                                                  // i，确认安装
+Extracting files ...
+                                                                           
+Please wait a few moments while JIRA Software starts up.
+Launching JIRA Software ...
+Installation of JIRA Software 7.1.7 is complete
+Your installation of JIRA Software 7.1.7 is now ready and can be accessed
+via your browser.
+JIRA Software 7.1.7 can be accessed at http://localhost:8080                                       // 访问地址 http://[ip]:8080，如http://127.0.0.1:8080
+Finishing installation ...                                                                         // 安装完毕
+[root@langer AtlassianResource]# 
+
+
+
+
+
+
+
+
+

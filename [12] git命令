@@ -1,0 +1,46 @@
+git参考手册地址: http://gitref.org/zh/
+Git--fast-version-control: https://git-scm.com/book/zh/v2
+
+git log:  查看版本历史记录
+git log --pretty=oneline:  版本号+修改记录
+git reset --hard HEAD^:  回退到上一个版本
+git reflog:  记录命令
+git diff HEAD -- readme.txt:  查看工作区和版本库最新版本的区别
+git checkout -- readme.txt: 把readme.txt文件在工作区的修改全部撤销，退回到最近一次git commit或git add时的状态
+git reset HEAD <file>:  把暂存区的修改撤销掉
+git rm:  从版本库中删除文件,使用git rm删掉,并且commit
+git remote add origin https://github.com/ksfengjia/learngit.git:  将本地仓库与gitbub仓库关联
+git push -u origin master:  将本地库推从到远程库上
+git push origin branchName:branchName:  提交到远程分支
+git push origin mybranch:master:  如果想把本地的某个分支mybranch提交到远程仓库，并作为远程仓库的master分支
+git remote:  列出远端别名
+git checkout -b dev:  创建并切换到dev分支
+git branch:  查看当前分支
+git branch -r:  查看远程分支
+git branch -d:  删除本地分支
+git branch -r -d origin/branch-name: 删除远程分支
+git push origin :<branchName> :  删除远程分支
+git push origin --delete <branchName> : 删除远程分支
+git merge:  合并某分支到当前分支
+git merge --no-ff:  不使用fast-forward方式合并，保留分支的commit历史
+git merge --squash:  使用squash方式合并，把多次分支commit历史压缩为一次
+git log --graph:  查看分支合并图
+git stash:  备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。
+git stash pop:  从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复。
+git stash list:  显示Git栈内的所有备份。
+git stash apply stash@{0} : 从list中选择所需恢复的备份工作区。
+git stash clear:  清空Git栈。
+git checkout -b dev origin/dev: 创建远程origin的dev分支到本地。
+git branch --set-upstream dev origin/<branch>:  创建本地dev分支与远程origin/dev分支的链接。
+git tag <v1.0>: 给这个版本打标签
+git tag: 查看所有标签
+git tag <v1.0>  <commit id>: 给历史版本打标签
+git show <v1.0>:  查看标签信息
+git tag -a <v1.0> -m "version 1" <commit id>: 创建带有说明的标签，-a指定标签名，-m制定说明文字
+git tag -d <v1.0>:  删除标签
+git push origin tagname:  推送本地标签
+git push origin --tags:  推送全部未推送过的本地标签
+git tag -d tagname: 删除本地标签
+git push origin :refs/tags/tagname: 删除远程标签
+
+
