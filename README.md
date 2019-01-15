@@ -32,3 +32,5 @@ modified: 2019 Jan 14
 | 14   | update_.gitignore                         | 如何对.gitignore进行更新                                     |
 | 15   | 创建git仓库和配置ssh秘钥                  | 创建git仓库和配置ssh秘钥                                     |
 | 16   | 谷歌hosts设置                             | 谷歌hosts设置                                                |
+| 17   | 版本号编制说明                            | 1.1.1.20190114_Release                                       |
+
