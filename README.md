@@ -3,7 +3,7 @@ title: learngit
 description: learning git
 author: Feng Jia
 tags: git
-version：1.1.1.20180104_Release
+version：1.1.1.20190114_Release
 created:  2017 Mar  9
 modified: 2019 Jan 14
 ---
